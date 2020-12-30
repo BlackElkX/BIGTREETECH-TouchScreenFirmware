@@ -6,7 +6,13 @@
 //===========================================================================
 
 /**
- * To work with RepRapFirmware, Add M575 P1 S2 B115200 to the end of config.g file in sd card
+ * Long press touch screen capture the current full screen to SD card
+ * Only for documentation purposes, DON'T enable it when normal printing
+ */
+//#define SCREEN_SHOT_TO_SD
+
+/**
+ * To work with RepRapFirmware, Add M575 P1 S2 B115200 to the end of config.g file in RRF motherboard sd card
  * uncomment for RepRapFirmware
 */
 //#define RepRapFirmware
@@ -17,10 +23,10 @@
  * Mode switching is still possible by holding down the encorder for two seconds.
  *
  * Options:
- * ST7920_SPI // Marlin Mode
- * SERIAL_TSC // Touch Mode
+ * MODE_MARLIN // Marlin Mode
+ * MDOE SERIAL_TSC // Touch Mode
  */
-#define DEFAULT_LCD_MODE SERIAL_TSC
+#define DEFAULT_LCD_MODE MODE_SERIAL_TSC
 
 /**
  * Default Startup Knob LED Color (TFT35 E3)
@@ -31,7 +37,7 @@
  *
  * Default value is: 1 for LED_OFF
 */
-#define STARTUP_KNOB_LED_COLOR 0         // LED_OFF
+#define STARTUP_KNOB_LED_COLOR 5         // LED_OFF
 #define KEEP_KNOB_LED_COLOR_MARLIN_MODE  // Keeps the LED state in Marlin Mode
 
 /**
@@ -86,7 +92,7 @@
  * Options:  0: Disabled. RECOMMENDED FOR TFT24
  *           1: Enabled Marlin Fullscreen mode.
  */
-#define DEFAULT_ST7920_FULLSCREEN_MODE 0 // 0: Disabled. RECOMMENDED FOR TFT24
+#define DEFAULT_ST7920_FULLSCREEN_MODE 1 // 0: Disabled. RECOMMENDED FOR TFT24
 
 /**
  * Keep Serial always On (ONLY SUPPORTED ON TFT24 V1.1, TFT35 V3.0, AND TFT28 V3.0)
@@ -109,9 +115,9 @@
  * you commonly experience drop-outs during host printing.
  * You may try up to 1000000 to speed up SD file transfer.
  *
- * :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000]
+ * :[2400: 0, 9600: 1, 19200: 2, 38400: 3, 57600: 4, 115200: 5, 250000: 6, 500000: 7, 1000000: 8]
  */
-#define BAUDRATE 115200
+#define BAUDRATE 6
 
 /**
  * Default Primary Language (for Touch-Mode only)
@@ -121,7 +127,7 @@
  *          HUNGARIAN, TURKISH, GREEK, SLOVENIAN, CATALAN, TRAD_CHINESE,
  *          UKRAINIAN,
  */
-#define DEFAULT_LANGUAGE ENGLISH
+#define DEFAULT_LANGUAGE DUTCH
 
 /**
  * To add/flash a second language copy the required "language_xx.ini" file from
@@ -143,7 +149,7 @@
  * M300 S<frequency Hz> P<duration ms>
  */
 #define BUZZER_FREQUENCY_DURATION_MS 20 // Default 20
-#define BUZZER_FREQUENCY_HZ 10000       // Default 10000, 20Hz to 60KHz
+#define BUZZER_FREQUENCY_HZ 1000        // Default 10000, 20Hz to 60KHz
 #define BUZZER_STOP_LEVEL false
 
 /**
